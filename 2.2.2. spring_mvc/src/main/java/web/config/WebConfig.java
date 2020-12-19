@@ -57,7 +57,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Bean
     public List<Car> getListCar(){
-        return new CarServiceImp().someCars();
+        return new CarServiceImp().getSomeCars();
     }
 
     @Bean

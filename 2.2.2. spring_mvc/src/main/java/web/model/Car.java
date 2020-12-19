@@ -1,11 +1,12 @@
 package web.model;
 
+import org.springframework.stereotype.Component;
+
+
 public class Car {
 
     private String model;
-
     private long id;
-
     private String color;
 
     public Car() {
@@ -18,7 +19,7 @@ public class Car {
 
     }
 
-        public String getModel() {
+    public String getModel() {
         return model;
     }
 
