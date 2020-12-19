@@ -15,7 +15,6 @@ public class CarServiceImp implements CarService{
         return listCars();
     }
 
-
     public List<Car> listCars() {
         List<Car> cars = new ArrayList<>();
         cars.add(new Car(1,"Уаз", "Зеленый"));
