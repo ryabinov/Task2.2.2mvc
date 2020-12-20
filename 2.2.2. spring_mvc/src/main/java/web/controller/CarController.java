@@ -2,7 +2,7 @@ package web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import web.service.CarService;
 import java.util.ArrayList;
@@ -18,19 +18,19 @@ public class CarController {
         this.carService = carService;
     }
 
-    @GetMapping("/cars")
-    public String printCar(@RequestParam(value = "count") int id, Model model) {
+    @RequestMapping("/cars")
+    public String printCar(@RequestParam(value = "count" , required = true, defaultValue = "5")Integer id, Model model) {
         List cars1 = new ArrayList();
-
-       if(id >= 5) {
-           model.addAttribute("carslist", carService.getSomeCars());
-       }else {
+        if(id >= 5) {
+            model.addAttribute("carslist", carService.findByCars());
+        }else {
            for (int x = 1, y = 0; x <= id; x++, y++) {
-               cars1.add(carService.getSomeCars().get(y));
+               cars1.add(carService.findByCars().get(y));
            }
-           model.addAttribute("carslist", cars1);
+            model.addAttribute("carslist", cars1);
        }
          return "cars";
+
     }
 }
 
